@@ -1,0 +1,47 @@
+parameter,table,data_type,lookup_category,description
+subject_id,All tables,primary_key,,"A unique patient ID, e.g., ML0001."
+group,General,categorical,group,Study group: "SLE" (patient) or "HC" (healthy control)
+enrollment_date,General,date,,Date of study enrollment (format: YYYY-MM-DD).
+sample_collection_date,General,date,,Date of sample collection.
+gender,General,categorical,gender,Biological sex at birth: "Male" or "Female".
+age,General,integer,,Age in years at the time of enrollment.
+questionaire_race,General,categorical,questionaire_race,Self identified race (if willing to reveal)
+questionaire_ethnicity,General,categorical,questionaire_ethnicity,Self identified ethnical background (if willing to reveal)
+sle_diagnosis,General,categorical,sle_diagnosis,Presence of a confirmed SLE diagnosis in medical records (No/Yes)
+age_sle_diagnosis,General,integer,,Age of SLE diagnosis from medical records as integer
+questionaire_english,General,categorical,questionaire_english,Speak and understand English well enough to answer questions and sign a consent   (No/Yes)
+questionaire_willing,General,categorical,questionaire_willing,Willing to take part in this study and give a blood sample   (No/Yes)
+questionaire_othertrials,General,categorical,questionaire_othertrials,Participant of other medical trials   (No/Yes)
+questionaire_okgenetests,General,categorical,questionaire_okgenetests,"Patient willing to use blood for lab research, including gene tests   (No/Yes)"
+questionaire_oksharedata,General,categorical,questionaire_oksharedata,Patient is fine to share his basic health information   (No/Yes)
+questionaire_otherautoimmune,Medical,categorical,questionaire_otherautoimmune,Presence of other autoimmune condition based on questionaire   (No/Yes)
+otherautoimmune,Medical,text,,List any other autoimmune condition based on medical records separated by comma.
+comorbidities,Medical,text,,List any comorbidities from medical records separated by comma
+recentmedication,Medical,text,,List prescribed medications over the past month separated by comma (include dose in paranthesis)
+iv_injections,Medical,text,,List intravenouse injections over the last year separated by comma (include date in paranthesis)
+biologics,Medical,text,,List treatment with biologics over the last year separated by comma (include date in paranthesis)
+recentinfections,Medical,text,,Indicate recent infections over for the past 3 weeks separated by comma
+chronicinfections,Medical,text,,List any chronic infection separated by comma
+recentvaccine,Medical,text,,Name of vaccinations over the last year separated by comma (include date in paranthesis)
+surgery,Medical,text,,Name of surgery undergon over the last year separated by comma (include date in paranthesis)
+questionaire_anemia,Questionaire,categorical,questionaire_anemia,Low hemoglobin or white blood cells based on patient statement  (No/Yes)
+questionaire_accuteinfection,Questionaire,categorical,questionaire_accuteinfection,Any infection right now based on patient statement  (No/Yes)
+questionaire_chronicinfect,Questionaire,categorical,questionaire_chronicinfect,"Any chronic infection like HIV, TB, hepatitis B or C, or shingles based on patient statement  (No/Yes)"
+questionaire_vaccine,Questionaire,categorical,questionaire_vaccine,Any vaccine in the past 3 weeks based on patient statement  (No/Yes)
+questionaire_pregnancy,Questionaire,categorical,questionaire_pregnancy,Current pregnancy or breastfeeding based on patient statement (No/Yes)
+questionaire_surgery,Questionaire,categorical,questionaire_surgery,Any major surgery in the past 4 weeks  (No/Yes)
+questionaire_illness,Questionaire,categorical,questionaire_illness,Serious illnesses based on patient statement   (No/Yes)
+questionaire_meds,Questionaire,categorical,questionaire_meds,Any increase dose or changes in your medicine for the past 3 weeks  (No/Yes)
+questionaire_iv,Questionaire,categorical,questionaire_iv,Any intravenous injection of medicine in the past 3 weeks    (No/Yes)
+questionaire_selfscore,Questionaire,integer,,How patient generally feel in the scale 0-5 based on patient statement   (scale 0 to 5)
+acr1997_malar,ACR97,categorical,acr1997_malar,Presence of malar rash as defined by ACR 1997 criteria
+acr1997_discoid,ACR97,categorical,acr1997_discoid,Presence of discoid rash as defined by ACR 1997 criteria
+acr1997_photosensitivity,ACR97,categorical,acr1997_photosensitivity,Presence of skin photosensitivity as defined by ACR 1997 criteria
+acr1997_oralulcer,ACR97,categorical,acr1997_oralulcer,Presence of oral or nasopharyngeal ulcerations as defined by ACR 1997 criteria
+acr1997_nonerosivearthiritis,ACR97,categorical,acr1997_nonerosivearthiritis,Presence of non-erosive arthritis involving two or more joints as defined by ACR 1997 criteria
+acr1997_pleuritispericarditis,ACR97,categorical,acr1997_pleuritispericarditis,Presence of pleuritis or pericarditis as defined by ACR 1997 criteria
+acr1997_renaldisorder,ACR97,categorical,acr1997_renaldisorder,Presence of SLE renal involvement as defined by ACR 1997 criteria
+acr1997_neurologicdisorder,ACR97,categorical,acr1997_neurologicdisorder,Presence of neurologic disorders or psychosis as defined by ACR 1997 criteria
+acr1997_hematologicdisorder,ACR97,categorical,acr1997_hematologicdisorder,Presence of hematologic disorders as defined by ACR 1997 criteria
+acr1997_immunlogicdisorder,ACR97,categorical,acr1997_immunlogicdisorder,Presence of immunologic abnormalities as defined by ACR 1997 criteria
+acr1997_ana,ACR97,categorical,acr1997_ana,Positive antinuclear antibody test as defined by ACR 1997 criteria
