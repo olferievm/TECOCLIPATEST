@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Patient</title>
+  <link rel="stylesheet" href="/static/css/app.css" />
+  <script src="/static/js/wizard.js" defer></script>
+</head>
+<body>
+  <main class="card">
+    <h1>Patient Entry Wizard</h1>
+    <a href="/">← Back to dashboard</a>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <form method="post" action="/patients/new" id="wizard-form">
+      <section class="wizard-step active" data-step="1">
+        <h2>1) Patient Identifier</h2>
+        <label>Subject ID <input name="subject_id" required /></label>
+      </section>
+
+      {% for table_name, params in tables.items() %}
+      <section class="wizard-step" data-step="{{ loop.index + 1 }}">
+        <h2>{{ loop.index + 1 }}) {{ table_name }}</h2>
+        <div class="grid">
+        {% for param in params %}
+          <label>
+            {{ param.parameter }}
+            {% if param.lookup_category and lookups.get(param.lookup_category) %}
+            <select name="{{ param.parameter }}">
+              <option value="">-- select --</option>
+              {% for item in lookups[param.lookup_category] %}
+              <option value="{{ item }}">{{ item }}</option>
+              {% endfor %}
+            </select>
+            {% elif param.data_type == 'date' %}
+            <input type="date" name="{{ param.parameter }}" />
+            {% elif param.data_type == 'integer' %}
+            <input type="number" step="1" name="{{ param.parameter }}" />
+            {% elif param.data_type == 'numeric' %}
+            <input type="number" step="any" name="{{ param.parameter }}" />
+            {% else %}
+            <input type="text" name="{{ param.parameter }}" />
+            {% endif %}
+          </label>
+        {% endfor %}
+        </div>
+      </section>
+      {% endfor %}
+
+      <div class="row">
+        <button type="button" id="prev-step">Previous</button>
+        <button type="button" id="next-step">Next</button>
+        <button type="submit" id="submit-btn" class="hidden">Save Patient</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
