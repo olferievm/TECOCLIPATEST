@@ -174,23 +174,26 @@ Administrators can update these lists.
 
 # Data Import
 
-The CSV file (`data_collection_sheet.csv`) defines the schema.
+The next CSV files are within the repository and defines the database schema:
+ data/generated_schema.csv
+ data/generated_lookup_values.csv
 
-Columns:
+
+Columns of data/generated_schema.csv:
 
 ```
-Parameter
-Description
-Source of data
-VariableType
-Table
+parameter
+table
+data_type
+lookup_category
+description
 ```
 
 Generation rules:
 
-1. Parameter → column name
-2. VariableType → column type
-3. Table → database table assignment
+1. parameter → column name
+2. data_type → column type
+3. table → database table assignment
 
 Suggested mapping:
 
@@ -301,9 +304,10 @@ Local network access only.
 Requirements:
 
 * server binds to local network interface
-* optional IP whitelist
 * password hashing using bcrypt
 * session expiration
+* admin can create and remove users account
+* use mail to validate the account and reset the password
 
 ---
 
