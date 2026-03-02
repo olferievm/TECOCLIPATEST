@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/static/css/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Dashboard</h1>
+    <div>
+      <span>{{ user.username }} ({{ user.role }})</span>
+      <a href="/logout">Logout</a>
+    </div>
+  </header>
+
+  <main class="card">
+    <form class="row" method="get" action="/">
+      <input name="q" value="{{ q }}" placeholder="Search subject/group/gender" />
+      <select name="sort">
+        {% for col in columns %}
+        <option value="{{ col }}" {% if sort == col %}selected{% endif %}>Sort: {{ col }}</option>
+        {% endfor %}
+      </select>
+      <select name="direction">
+        <option value="desc" {% if direction == 'desc' %}selected{% endif %}>Desc</option>
+        <option value="asc" {% if direction == 'asc' %}selected{% endif %}>Asc</option>
+      </select>
+      <button type="submit">Apply</button>
+      <a class="btn" href="/patients/new">New Patient</a>
+      <a class="btn" href="/export/csv?q={{ q }}">Export CSV</a>
+      <a class="btn" href="/export/xlsx?q={{ q }}">Export XLSX</a>
+    </form>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>{% for col in columns %}<th>{{ col }}</th>{% endfor %}</tr>
+        </thead>
+        <tbody>
+        {% for row in rows %}
+          <tr>{% for col in columns %}<td>{{ row[col] }}</td>{% endfor %}</tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
